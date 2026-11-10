@@ -1,0 +1,89 @@
+{
+  "mappings": {
+    "Benign": {
+      "category": "Normal",
+      "ml_class": "Normal"
+    },
+    "BENIGN": {
+      "category": "Normal",
+      "ml_class": "Normal"
+    },
+    "FTP-BruteForce": {
+      "category": "Brute Force",
+      "ml_class": "Potential Attack"
+    },
+    "FTP-Patator": {
+      "category": "Brute Force",
+      "ml_class": "Potential Attack"
+    },
+    "SSH-Bruteforce": {
+      "category": "Brute Force",
+      "ml_class": "Potential Attack"
+    },
+    "SSH-Patator": {
+      "category": "Brute Force",
+      "ml_class": "Potential Attack"
+    },
+    "PortScan": {
+      "category": "Port Scanning",
+      "ml_class": "Potential Attack"
+    },
+    "DoS Hulk": {
+      "category": "DoS",
+      "ml_class": "Potential Attack"
+    },
+    "DoS GoldenEye": {
+      "category": "DoS",
+      "ml_class": "Potential Attack"
+    },
+    "DoS slowloris": {
+      "category": "DoS",
+      "ml_class": "Potential Attack"
+    },
+    "DoS Slowhttptest": {
+      "category": "DoS",
+      "ml_class": "Potential Attack"
+    },
+    "DDoS": {
+      "category": "DDoS",
+      "ml_class": "Potential Attack"
+    },
+    "DDOS": {
+      "category": "DDoS",
+      "ml_class": "Potential Attack"
+    },
+    "Bot": {
+      "category": "Other/Suspicious",
+      "ml_class": "Suspicious"
+    },
+    "Infiltration": {
+      "category": "Other/Suspicious",
+      "ml_class": "Potential Attack"
+    },
+    "Web Attack - Brute Force": {
+      "category": "Brute Force",
+      "ml_class": "Potential Attack"
+    },
+    "Web Attack - XSS": {
+      "category": "Other/Suspicious",
+      "ml_class": "Potential Attack"
+    },
+    "Web Attack - Sql Injection": {
+      "category": "Other/Suspicious",
+      "ml_class": "Potential Attack"
+    }
+  },
+  "categories": [
+    "Normal",
+    "Port Scanning",
+    "DoS",
+    "DDoS",
+    "Brute Force",
+    "Other/Suspicious"
+  ],
+  "ml_classes": [
+    "Normal",
+    "Suspicious",
+    "Potential Attack"
+  ]
+}

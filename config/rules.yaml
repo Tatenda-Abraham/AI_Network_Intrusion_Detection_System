@@ -1,0 +1,88 @@
+# AI-NIDS Rule Engine Configuration
+# Chinhoyi University of Technology - School of Engineering Sciences and Technology
+# Department of ICT and Electronics (Group 5)
+
+# Wireless 802.11 Rule Thresholds (per 10-second window)
+wireless:
+  deauth_flood:
+    enabled: true
+    frame_threshold: 30
+    description: "Detects rapid deauthentication / disassociation frames indicating Wi-Fi jamming or client eviction."
+  beacon_flood:
+    enabled: true
+    frame_threshold: 80
+    description: "Detects abnormal density of beacon frames designed to confuse wireless network discovery."
+  probe_flood:
+    enabled: true
+    frame_threshold: 50
+    description: "Detects high-rate probe request flood scanning."
+  auth_flood:
+    enabled: true
+    frame_threshold: 25
+    description: "Detects rapid authentication frame attempts exhausting AP association tables."
+  evil_twin:
+    enabled: true
+    require_heuristic_note: true
+    description: "Detects known campus SSID advertised on unapproved BSSID or mismatched channel (Heuristic estimate, not a confirmed attack)."
+  # Campus access point register. Each entry marks a BSSID and/or SSID as authorised
+  # infrastructure; observed APs outside this register are raised as findings.
+  approved_access_points: []
+  #   - bssid: "AA:BB:CC:DD:EE:FF"
+  #     ssid: "CUT-Staff"
+  baseline_anomaly:
+    enabled: true
+    z_score_threshold: 2.5
+    min_samples: 10
+    description: "Flags traffic velocity deviating significantly from historical campus baseline for day/hour."
+
+# IP-Flow Rule Thresholds
+port_scan:
+  enabled: true
+  window_seconds: 10
+  distinct_ports_threshold: 15
+  syn_without_ack_min_ratio: 2.0
+  description: "Detects single source probing multiple destination ports with high SYN-to-ACK ratio within a sliding time window."
+
+dos:
+  enabled: true
+  window_seconds: 5
+  packets_per_sec_threshold: 120
+  syn_per_sec_threshold: 40
+  syn_without_ack_ratio_threshold: 3.0
+  require_ml_or_syn_imbalance: true
+  skip_group_destinations: true
+  description: "Detects single source overwhelming a target with high packet/SYN rates. Requires SYN imbalance or ML agreement to prevent flagging benign bursts. Multicast and broadcast destinations are ignored because normal group fan-out is not a flood."
+
+ddos:
+  enabled: true
+  window_seconds: 10
+  min_distinct_sources: 5
+  aggregate_packets_per_sec: 250
+  correlated_port_or_proto: true
+  skip_group_destinations: true
+  description: "Detects distributed sources directing coordinated high-rate traffic toward one destination IP and service port. A target is only reported when a single port is addressed by enough hosts fast enough, so ordinary fan-in from many servers replying to one client is not a flood. mDNS, ARP and subnet broadcast addresses are excluded because many hosts addressing one group is normal."
+
+brute_force:
+  enabled: true
+  window_seconds: 15
+  auth_ports: [21, 22, 23, 3389, 8080]
+  connection_attempts_threshold: 8
+  max_flow_duration_ms: 1500
+  auth_log_failure_threshold: 5
+  description: "Detects rapid repeated short-lived connections to known authentication ports or excessive failed authentication log events."
+
+suspicious_anomaly:
+  enabled: true
+  rst_flag_ratio_threshold: 0.6
+  unusual_packet_size_max: 65535
+  z_score_threshold: 2.5
+  description: "Flags baseline traffic deviations, abnormal TCP RST floods, or out-of-spec protocol anomalies for security investigation."
+
+traffic_spike:
+  enabled: true
+  rate_multiplier: 10.0
+  min_packets: 40
+  min_flows_in_window: 12
+  max_findings_per_window: 2
+  skip_group_destinations: true
+  description: "Flags a flow whose packet rate is far above the median rate of the other flows in the same window. Measured against the window itself, so a busy period does not raise alarms; only a flow standing out by at least the multiplier is reported."

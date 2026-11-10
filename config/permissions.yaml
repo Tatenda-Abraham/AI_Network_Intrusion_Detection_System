@@ -1,0 +1,41 @@
+# AI-NIDS Role-Based Access Control (RBAC) Permissions
+# Roles: Administrator, Cybersecurity Analyst
+
+Administrator:
+  label: "Administrator"
+  permissions:
+    - dashboard:view
+    - findings:view
+    - findings:edit
+    - findings:delete
+    - alerts:view
+    - alerts:edit
+    - threat_details:view
+    - analytics:view
+    - reports:view
+    - reports:create
+    - login_history:view_all
+    - login_history:view_own
+    - user_management:all
+    - audit_logs:view
+    - capture:start
+    - capture:stop
+    - sessions:revoke
+    - events:delete
+    - mac_address:full
+
+Cybersecurity Analyst:
+  label: "Cybersecurity Analyst"
+  permissions:
+    - dashboard:view
+    - findings:view
+    - findings:edit
+    - alerts:view
+    - threat_details:view
+    - analytics:view
+    - reports:view
+    - reports:create
+    - login_history:view_own
+    - capture:start
+    - capture:stop
+    - mac_address:masked

@@ -1,0 +1,139 @@
+{
+  "model_version": "rf_v1",
+  "created_at": "2026-10-25T11:52:43.990333",
+  "algorithm": "RandomForestClassifier(n_estimators=50, max_depth=16)",
+  "alternative_algorithm": "DecisionTreeClassifier(max_depth=16)",
+  "features": [
+    "Dst Port",
+    "Protocol",
+    "Flow Duration",
+    "Tot Fwd Pkts",
+    "Tot Bwd Pkts",
+    "TotLen Fwd Pkts",
+    "TotLen Bwd Pkts",
+    "Fwd Pkt Len Max",
+    "Fwd Pkt Len Min",
+    "Fwd Pkt Len Mean",
+    "Fwd Pkt Len Std",
+    "Bwd Pkt Len Max",
+    "Bwd Pkt Len Min",
+    "Bwd Pkt Len Mean",
+    "Bwd Pkt Len Std",
+    "Flow Byts/s",
+    "Flow Pkts/s",
+    "Flow IAT Mean",
+    "Flow IAT Std",
+    "Flow IAT Max",
+    "Flow IAT Min",
+    "Fwd IAT Mean",
+    "Bwd IAT Mean",
+    "Pkt Len Min",
+    "Pkt Len Max",
+    "Pkt Len Mean",
+    "Pkt Len Std",
+    "FIN Flag Cnt",
+    "SYN Flag Cnt",
+    "RST Flag Cnt",
+    "PSH Flag Cnt",
+    "ACK Flag Cnt",
+    "Down/Up Ratio",
+    "Pkt Size Avg"
+  ],
+  "feature_count": 34,
+  "target_classes": [
+    "Benign",
+    "FTP-BruteForce",
+    "SSH-Bruteforce"
+  ],
+  "metrics": {
+    "accuracy": 0.9994,
+    "precision": 0.9994,
+    "recall": 0.9994,
+    "f1_score": 0.9994,
+    "false_positive_rate": 0.0013,
+    "evaluation_latency_seconds": 0.0612,
+    "training_time_seconds": 0.35
+  },
+  "targets": {
+    "accuracy_target": ">= 95.0%",
+    "accuracy_result": "99.94%",
+    "accuracy_status": "PASS",
+    "fpr_target": "< 3.0%",
+    "fpr_result": "0.13%",
+    "fpr_status": "PASS",
+    "latency_target": "< 2.0s",
+    "latency_result": "0.061s",
+    "latency_status": "PASS"
+  },
+  "confusion_matrix": [
+    [
+      2996,
+      3,
+      1
+    ],
+    [
+      0,
+      3000,
+      0
+    ],
+    [
+      1,
+      0,
+      2999
+    ]
+  ],
+  "labels": [
+    "Benign",
+    "FTP-BruteForce",
+    "SSH-Bruteforce"
+  ],
+  "validation_split": {
+    "method": "Stratified hold-out (80/20), random_state=42, stratified on the raw dataset label",
+    "train_ratio": 0.8,
+    "test_ratio": 0.2,
+    "train_samples": 36000,
+    "test_samples": 9000,
+    "evaluated_on": "test_samples"
+  },
+  "feature_importances": {
+    "Dst Port": 0.2258556841815566,
+    "Flow Pkts/s": 0.12906291904680198,
+    "Flow Duration": 0.06387573700419188,
+    "TotLen Fwd Pkts": 0.06105605964650332,
+    "Flow IAT Mean": 0.06037137525288157,
+    "Tot Fwd Pkts": 0.059583216164086544,
+    "Tot Bwd Pkts": 0.04278049644944852,
+    "Flow IAT Max": 0.04229409601889999,
+    "TotLen Bwd Pkts": 0.03712595312936897,
+    "Fwd IAT Mean": 0.03173546406756337,
+    "Fwd Pkt Len Mean": 0.029068857936646438,
+    "Flow IAT Min": 0.028290443918200542,
+    "ACK Flag Cnt": 0.025941930459938967,
+    "Fwd Pkt Len Max": 0.02403673104179918,
+    "PSH Flag Cnt": 0.021919249033125695,
+    "Fwd Pkt Len Std": 0.020071369374290216,
+    "Bwd Pkt Len Std": 0.016158490998507986,
+    "Pkt Len Std": 0.01588008425688985,
+    "Bwd Pkt Len Max": 0.014197357944732014,
+    "Pkt Len Mean": 0.012082619992049133,
+    "Flow IAT Std": 0.008804566540381425,
+    "Bwd Pkt Len Mean": 0.008123654503770733,
+    "Pkt Size Avg": 0.0068535083620436185,
+    "Pkt Len Max": 0.006054440392122235,
+    "Flow Byts/s": 0.002946630500224736,
+    "Down/Up Ratio": 0.002700770925351663,
+    "Protocol": 0.001777108229635324,
+    "Fwd Pkt Len Min": 0.0010371208504474424,
+    "Bwd IAT Mean": 0.00019530698228863787,
+    "FIN Flag Cnt": 0.00010048943711252267,
+    "RST Flag Cnt": 1.1605394072432036e-05,
+    "SYN Flag Cnt": 6.66196506649683e-06,
+    "Bwd Pkt Len Min": 0.0,
+    "Pkt Len Min": 0.0
+  },
+  "dataset_distribution": {
+    "FTP-BruteForce": 193360,
+    "Benign": 667626,
+    "SSH-Bruteforce": 187589
+  }
+}

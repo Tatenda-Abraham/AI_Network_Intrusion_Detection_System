@@ -1,0 +1,32 @@
+# AI-NIDS Severity Engine Rules
+# Chinhoyi University of Technology - Group 5 AI-NIDS
+
+base_severities:
+  "DDoS": "Critical"
+  "DoS": "High"
+  "Port Scanning": "High"
+  "Brute Force": "High"
+  "Other/Suspicious": "Investigate"
+  "Traffic Spike Anomaly": "Low"
+  "Normal": "Low"
+
+ml_class_overrides:
+  "Suspicious": "Medium"
+  "Potential Attack": "High"
+  "Normal": "Low"
+
+escalation_modifiers:
+  high_confidence_threshold: 0.90
+  critical_target_subnets:
+    - "192.168.1.1"
+    - "192.168.1.254"
+    - "10.0.0.1"
+  high_packet_volume_threshold: 50000
+  multi_source_threshold: 10
+
+severity_hierarchy:
+  "Critical": 4
+  "High": 3
+  "Medium": 2
+  "Low": 1
+  "Investigate": 0

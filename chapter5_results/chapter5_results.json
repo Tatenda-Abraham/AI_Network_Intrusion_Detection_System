@@ -1,0 +1,21 @@
+{
+  "institution": "Chinhoyi University of Technology",
+  "group": "Group 5",
+  "timestamp": "2026-10-20 01:41:18",
+  "metrics": {
+    "accuracy": 0.9994,
+    "precision": 0.9994,
+    "recall": 0.9994,
+    "f1_score": 0.9994,
+    "false_positive_rate": 0.0013,
+    "preprocessing_latency_ms": 0.06095699965953827,
+    "severity_latency_seconds": 1.278999261558056e-06,
+    "dashboard_refresh_interval_seconds": 5.0
+  },
+  "status": {
+    "accuracy": "PASS",
+    "fpr": "PASS",
+    "preprocessing": "PASS",
+    "severity_latency": "PASS"
+  }
+}
