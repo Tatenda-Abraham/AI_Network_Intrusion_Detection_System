@@ -1,5 +1,5 @@
 # AI-Based Network Intrusion Detection and Monitoring System (AI-NIDS)
-### Chinhoyi University of Technology - Group 5
+### 
 
 ## Project Overview
 A sophisticated wireless intrusion detection system featuring real-time 802.11 frame analysis, machine learning-based anomaly detection, and a dual-mode monitoring dashboard.
